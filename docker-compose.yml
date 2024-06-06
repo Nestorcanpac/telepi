@@ -1,0 +1,19 @@
+version: "3"
+services:
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: nestor
+      POSTGRES_PASSWORD: nestor
+      POSTGRES_DB: pizzas
+    volumes:
+      - telepi:/var/lib/postgresql/data
+  telepifront:
+    image: nestorcp4/telepifront
+    ports:
+      - "5173:5173"
+volumes:
+  telepi:
